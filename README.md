@@ -1,4 +1,4 @@
-# Anjali & Rohan — Engagement Invitation
+# Trail— Engagement Invitation
 
 A single-page, luxury handcrafted engagement invitation. React 19 + Vite + Tailwind CSS + Framer Motion. Fully static — no backend, no database, no auth.
 
