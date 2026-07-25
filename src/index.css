@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-heading antialiased;
+    font-family: "Lora", serif;
+  }
+
+  /* Visible, elegant focus states for keyboard navigation */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #c8a26d;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: #ebc8d3;
+    color: #54463e;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Handmade paper texture: fine grain + faint deckled vignette */
+  .paper-texture {
+    background-color: #faf7f2;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(200, 162, 109, 0.05), transparent 45%),
+      radial-gradient(circle at 80% 70%, rgba(154, 168, 143, 0.06), transparent 50%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  }
+
+  .invite-card {
+    @apply relative mx-auto w-full max-w-invite bg-paper;
+  }
+
+  /* Soft label used as an eyebrow above headings */
+  .eyebrow {
+    @apply font-ui text-[0.68rem] uppercase tracking-[0.32em] text-sage;
+  }
+
+  .section-heading {
+    @apply font-display text-4xl sm:text-5xl text-heading;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-full bg-heading px-7 py-3 font-ui text-sm font-medium tracking-wide text-paper shadow-card transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-soft active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 rounded-full border border-gold/60 bg-transparent px-7 py-3 font-ui text-sm font-medium tracking-wide text-heading transition-all duration-300 hover:-translate-y-0.5 hover:border-gold hover:bg-gold/10 active:translate-y-0;
+  }
+}
